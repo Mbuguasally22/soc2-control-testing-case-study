@@ -1,10 +1,10 @@
 # Test Plan: SOC 2 Readiness Control Testing
 
 **Doc ID:** CP-GRC-001
-**Version:** 1.0
+**Version:** 1.1
 **Prepared by:** GRC Analyst, Cedarpoint Analytics
 **Approved by:** Head of Security
-**Approval date:** 2026-09-21
+**Approval date:** 2026-09-21 (version 1.0); amendment approved 2026-10-30 (version 1.1)
 
 > **Fictional case study.** Cedarpoint Analytics is an invented company. The populations, dates and numbers in this plan are made up for practice. Nothing here is real client work or a real SOC 2 report.
 
@@ -134,10 +134,14 @@ An **exception** is any tested item that does not meet the control criteria. Mis
 |---|---|
 | One-time or annual control fails | Rated Not effective |
 | Sample of 5 or fewer has any exception | Rated Not effective |
-| Larger sample has 1 exception | Extend the sample by another 25 items |
+| Larger sample has 1 exception | Extend the sample by another 25 items, or by all remaining items if fewer than 25 remain |
 | Extended sample has no further exception | Rated Effective with exception; the single exception is logged |
 | Extended sample has another exception | Rated Not effective |
 | Larger sample has 2 or more exceptions | Rated Not effective |
+
+**Populations tested in full.** When every item is tested (population under 25, or a full population report), the sample thresholds apply to the full population. With 5 or fewer items, any exception makes the control Not effective. With more than 5 items, 1 exception is Effective with exception and 2 or more are Not effective. There is no extension, because nothing is left to add.
+
+**Continuous controls.** For a control that should be on all the time (such as MFA enforcement), any period when it was off or not enforced is an exception. One lapse of 5 business days or less that was corrected, with no misuse found in the logs, is rated Effective with exception. A longer lapse, more than one lapse, or any misuse found is rated Not effective, operating. The severity of the deficiency is set by what was exposed during the lapse, not by the conclusion.
 
 For each exception the analyst also records the root cause and whether it looks like a one-off slip or a repeating pattern, because a pattern is a more serious finding than a single miss.
 
@@ -169,7 +173,7 @@ Severity is rated by the analyst and confirmed by the Head of Security. When two
 | Date | Milestone |
 |---|---|
 | 2026-09-21 | Test plan approved |
-| 2026-09-28 | Evidence requests issued to control owners |
+| 2026-10-01 | Evidence requests issued to control owners (after the testing period closes, so period-end records exist) |
 | 2026-10-12 | Evidence due |
 | 2026-10-13 to 2026-10-30 | Testing and workpapers |
 | 2026-11-02 to 2026-11-06 | Deficiencies reviewed with control owners |
@@ -190,3 +194,4 @@ Severity is rated by the analyst and confirmed by the Head of Security. When two
 | Version | Date | Change | Approved by |
 |---|---|---|---|
 | 1.0 | 2026-09-21 | First approved version | Head of Security |
+| 1.1 | 2026-10-30 | Amendment during fieldwork. Section 8: rules added for fully tested populations, extensions when fewer than 25 items remain, and continuous controls. Section 10: evidence request issue date moved from 2026-09-28 to 2026-10-01 so period-end records exist. Rules applied to WP-01 to WP-04. No conclusions changed. | Head of Security |
