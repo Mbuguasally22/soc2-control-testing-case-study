@@ -157,7 +157,7 @@ CHG-2841 was released on Tue 2026-09-08 and its review is recorded on Thu 2026-0
 
 **Population and completeness:** The scan history (ER-46) shows 26 weekly runs, one each Monday from 2026-04-06 to 2026-09-28. The period contains 26 Mondays, so the list is complete. The same export lists 138 critical and high findings detected in the period. Population accepted.
 
-**Sample selection:** 5 of 26 scan runs and 25 of 138 findings, chosen at random on 2026-10-15 (test plan section 7). The scan runs sampled were 2026-04-20, 2026-05-25, 2026-06-29, 2026-08-03 and 2026-09-14.
+**Sample selection:** 5 of 26 scan runs and 25 of 138 findings, chosen at random on 2026-10-13 (test plan section 7). The scan runs sampled were 2026-04-20, 2026-05-25, 2026-06-29, 2026-08-03 and 2026-09-14.
 
 **Procedures performed:** Inspection and reperformance.
 1. For each sampled scan, confirmed it ran on the scheduled day and compared the assets scanned with the asset inventory (ER-42).
@@ -217,7 +217,7 @@ CHG-2841 was released on Tue 2026-09-08 and its review is recorded on Thu 2026-0
 
 **Population and completeness:** The first export of the alert list (ER-15) was missing alert IDs and arrived 2 days after its due date. The reissued export shows 604 alerts from 2026-04-01 to 2026-09-30. The analyst compared it with the platform's own alert total for the period (ER-44): 604 in both. Population accepted. The late delivery is an evidence timeliness note and not an exception on the control.
 
-**Sample selection:** 40 of 604 chosen at random on 2026-10-13 (population of 250 or more), spread across all six months and all severities.
+**Sample selection:** 40 of 604 chosen at random on 2026-10-15 (population of 250 or more), spread across all six months and all severities.
 
 **Procedures performed:** Inspection. For each sampled alert, compared the alert time with the triage time, and checked for a classification and a written note.
 
@@ -251,5 +251,15 @@ CHG-2841 was released on Tue 2026-09-08 and its review is recorded on Thu 2026-0
 | WP-06 | Compliance Lead | 2026-10-30 | Emergency changes reported separately as planned |
 | WP-07 | Compliance Lead | 2026-10-30 | Day counts reperformed |
 | WP-08 | Compliance Lead | 2026-10-30 | Extension to 65 alerts accepted |
+
+## Corrections after review
+
+| Date | Workpaper | Correction |
+|---|---|---|
+| 2026-10-30 | WP-06 | Evidence log: ER-40 moved to the first request round so the completeness check came before the sample was selected. No change to the workpaper text. |
+| 2026-10-30 | WP-07 | Sample selection date corrected from 2026-10-15 to 2026-10-13, to agree with the evidence request log |
+| 2026-10-30 | WP-08 | Sample selection date corrected from 2026-10-13 to 2026-10-15, after the alert population was received and checked. ER-16 request date changed to match. |
+
+No conclusion changed. Compliance Lead re-review of these corrections is pending.
 
 *End of Part 2. Part 3 covers CP-09 to CP-12.*
