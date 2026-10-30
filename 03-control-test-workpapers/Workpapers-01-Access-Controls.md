@@ -2,8 +2,8 @@
 
 **Doc ID:** CP-GRC-003, Part 1
 **Prepared by:** GRC Analyst, Cedarpoint Analytics
-**Reviewed by:** Compliance Lead, 2026-10-27
-**Test plan:** CP-GRC-001 (folder 01)
+**Reviewed by:** Compliance Lead, 2026-10-27 (corrections made 2026-10-30, see end of document)
+**Test plan:** CP-GRC-001, version 1.1 (folder 01)
 **Evidence requests:** folder 02, referenced below as ER-xx
 
 > **Fictional case study.** Cedarpoint Analytics is an invented company. All results, names of items and counts in these workpapers are made up for practice.
@@ -15,7 +15,7 @@
 | Workpaper | Control | Items tested | Exceptions | Conclusion | Deficiency |
 |---|---|---|---|---|---|
 | WP-01 | CP-01 Quarterly access review | 2 of 2 | 1 | Not effective, operating | D-01 |
-| WP-02 | CP-02 Access approved before granted | 38 of 38 (25 sampled, then extended) | 1 | Effective with exception | D-02 |
+| WP-02 | CP-02 Access approved before granted | 38 of 38 (25 sampled, then extended to all remaining) | 1 | Effective with exception | D-02 |
 | WP-03 | CP-03 Access removed after termination | 16 of 16 | 2 | Not effective, operating | D-03 |
 | WP-04 | CP-04 MFA enforced | 127 of 127 users plus configuration history | 1 | Effective with exception | D-04 |
 
@@ -30,7 +30,7 @@ Severity ratings for D-01 to D-04 are set in the deficiency log (folder 04).
 | Criteria | CC6.2, CC6.3 |
 | Control owner | IT Manager |
 | Frequency | Quarterly |
-| Test date | 2026-10-13 |
+| Test date | 2026-10-13 to 2026-10-14 |
 | Evidence used | ER-01, ER-02 |
 
 **Control as written:** Each quarter the IT Manager reviews the list of users and their access for the identity provider, production cloud environment, source code repository and ticketing system, and removes or changes access that is no longer needed. The review is recorded in a ticket.
@@ -61,7 +61,7 @@ Severity ratings for D-01 to D-04 are set in the deficiency log (folder 04).
 
 **Observation:** Add a system checklist to the access review procedure so every in-scope system is named.
 
-**Conclusion:** Not effective, operating. With a sample of 5 or fewer, one exception makes the control not effective under section 8 of the test plan.
+**Conclusion:** Not effective, operating. This is a population of 2, tested in full, so under section 8 of the test plan (version 1.1) any exception makes the control not effective.
 **Deficiency reference:** D-01
 
 ---
@@ -98,7 +98,7 @@ Severity ratings for D-01 to D-04 are set in the deficiency log (folder 04).
 
 **Exception detail:** One account, created 2026-06-18 at 14:05 for a new support engineer, was approved by the manager at 09:12 the next morning. The role was standard application access, with no production data access.
 
-**Extension:** Under test plan section 8, one exception in a larger sample means adding 25 more items. Only 13 accounts remained in the population of 38, so the analyst tested all 13. The IT Manager provided the 13 tickets on 2026-10-20. All 13 were approved before creation. No further exceptions.
+**Extension:** Under test plan section 8 (version 1.1), one exception in a larger sample means adding 25 more items, or all remaining items if fewer than 25 remain. Only 13 accounts remained in the population of 38, so the analyst tested all 13. The IT Manager provided the 13 tickets on 2026-10-20. All 13 were approved before creation. No further exceptions.
 
 **Root cause:** The new hire started that morning and HR asked IT to create the account first. The manager approved the ticket after the fact.
 
@@ -142,7 +142,7 @@ Severity ratings for D-01 to D-04 are set in the deficiency log (folder 04).
 
 | Item | Last working day | Disabled | Business days after | HR notice to IT | Sign-in after last day |
 |---|---|---|---|---|---|
-| 7 | Fri 2026-07-10 | Wed 2026-07-15 | 3 | Tue 2026-07-14 | None found |
+| 7 | Fri 2026-07-10 | Wed 2026-07-15 | 3 | Wed 2026-07-15 | None found |
 | 12 | Thu 2026-08-20 | Mon 2026-08-24 | 2 | Mon 2026-08-24 | None found |
 
 **Root cause:** In both cases HR's email reached IT after the last working day, and IT disabled the account the same day it learned of the departure. The delay sits in the HR to IT handoff.
@@ -151,7 +151,7 @@ Severity ratings for D-01 to D-04 are set in the deficiency log (folder 04).
 
 **Observation:** Replace the email with an automatic ticket created by the HR system on the day a termination is entered, with a due date of one business day after the last working day.
 
-**Conclusion:** Not effective, operating. Two or more exceptions in a population tested in full make the control not effective under section 8 of the test plan. No access after the last working day was found for either account.
+**Conclusion:** Not effective, operating. This is a population tested in full with more than 5 items, so under section 8 of the test plan (version 1.1) 2 or more exceptions make the control not effective. No access after the last working day was found for either account.
 **Deficiency reference:** D-03
 
 ---
@@ -170,7 +170,7 @@ Severity ratings for D-01 to D-04 are set in the deficiency log (folder 04).
 
 **Objective:** A stolen password alone cannot give access to company systems.
 
-**Design assessment:** Adequate. Enforcement is set by policy in each system rather than left to individual users.
+**Design assessment:** Adequate with observation. Enforcement is set by policy in each system rather than left to individual users, but a policy change needs no change ticket and triggers no alert (see root cause).
 
 **Population and completeness:** The user report (ER-07) lists 127 active accounts as of 2026-09-30. The analyst reconciled it to 118 active employees in the HR system plus 9 contractors on the approved contractor list: 127. Population accepted.
 
@@ -196,7 +196,7 @@ Severity ratings for D-01 to D-04 are set in the deficiency log (folder 04).
 
 **Follow-up:** The analyst will check whether this change appears in the change population when testing CP-06 (change management).
 
-**Conclusion:** Effective with exception. Enrollment was complete and the control worked except for a limited, explained lapse of about three days.
+**Conclusion:** Effective with exception. Enrollment was complete and the control worked except for one corrected lapse of 3 business days. Under the continuous controls rule in section 8 of the test plan (version 1.1), one corrected lapse of 5 business days or less with no misuse found is rated Effective with exception. The lapse exposed production access, so the severity of D-04 is rated in the deficiency log by what was exposed, not by this conclusion.
 **Deficiency reference:** D-04
 
 ---
@@ -209,5 +209,16 @@ Severity ratings for D-01 to D-04 are set in the deficiency log (folder 04).
 | WP-02 | Compliance Lead | 2026-10-27 | Extension to all 38 accepted |
 | WP-03 | Compliance Lead | 2026-10-27 | Business day counts reperformed |
 | WP-04 | Compliance Lead | 2026-10-27 | Sign-in log review agreed |
+
+## Corrections after review
+
+| Date | Workpaper | Correction |
+|---|---|---|
+| 2026-10-30 | WP-01 | Test date extended to include 2026-10-14, when the repository user list was exported. Conclusion now cites the fully tested population rule. |
+| 2026-10-30 | WP-02 | Extension wording now cites the "or all remaining items" rule in test plan version 1.1 |
+| 2026-10-30 | WP-03 | Item 7 HR notice date corrected from 2026-07-14 to 2026-07-15, matching the root cause. Conclusion now cites the fully tested population rule. |
+| 2026-10-30 | WP-04 | Design assessment changed to Adequate with observation. Conclusion now cites the continuous controls rule. |
+
+No conclusion changed. Compliance Lead re-review of these corrections is pending.
 
 *End of Part 1. Part 2 covers CP-05 to CP-08.*
