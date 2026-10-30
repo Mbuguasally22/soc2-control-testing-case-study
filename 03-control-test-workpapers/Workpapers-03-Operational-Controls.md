@@ -2,7 +2,7 @@
 
 **Doc ID:** CP-GRC-003, Part 3
 **Prepared by:** GRC Analyst, Cedarpoint Analytics
-**Reviewed by:** Compliance Lead for WP-09, WP-10 and WP-12; Head of Security for WP-11 (the Compliance Lead owns control CP-11 and cannot review a test of their own control), 2026-10-30
+**Reviewed by:** Compliance Lead for WP-09, WP-10 and WP-12; Engineering Lead for WP-11 (the Compliance Lead owns control CP-11 and the Head of Security approves each vendor review under it, so neither can review a test of it), 2026-10-30
 **Test plan:** CP-GRC-001, version 1.1 (folder 01)
 **Evidence requests:** folder 02, referenced below as ER-xx
 **Test work performed:** 2026-10-20 to 2026-10-28
@@ -11,7 +11,7 @@
 
 **Note on the test plan version.** Test plan version 1.1 was approved on 2026-10-30, after this test work was done. The analyst checked every rating in this part against both version 1.0 and version 1.1. No rating differs between the two versions.
 
-**Note on late evidence.** Test plan section 8 says missing evidence counts as an exception unless the owner produces it by the evidence deadline. This applies where the evidence is the proof that a control operated (see WP-11). It does not apply to population lists the analyst needs only to draw a sample. Those are recorded as timeliness notes (see ER-15 in WP-08).
+**Note on late evidence (interpretation pending approval).** Test plan section 8 says missing evidence counts as an exception unless the owner produces it by the evidence deadline. The analyst has read this to apply where the evidence is the proof that a control operated (see WP-11), and not to population lists needed only to draw a sample (see ER-15 in WP-08, recorded as a timeliness note). This reading is not written in the plan. It needs Head of Security approval and an entry in the test plan document history, which is scheduled for the final consistency pass. The same reading will be applied to ER-29 (the Q3 deletion run record for CP-16) in Part 4.
 
 ---
 
@@ -38,15 +38,15 @@ Severity ratings for D-09 to D-12 are set in the deficiency log (folder 04).
 | Test date | 2026-10-20 to 2026-10-21 |
 | Evidence used | ER-17, ER-18, ER-47 |
 
-**Control as written:** The incident response plan is reviewed and tested by a tabletop exercise at least once a year, and actions from the test are tracked. Every incident is recorded in a ticket with a severity, a named incident commander, a timeline and a closure date. Incidents of medium severity or higher get a post-incident review within 10 business days of closure. Affected customers are told within 72 hours of Cedarpoint confirming an incident that affected their data or service.
+**Control as written:** The incident response plan is reviewed and tested by a tabletop exercise at least once a year, and actions from the test are tracked. An incident is an event that results in unauthorized access to, or loss, disclosure or unavailability of, company or customer data or systems. Every incident is recorded in a ticket with a severity, a named incident commander, a timeline and a closure date. Incidents of medium severity or higher get a post-incident review within 10 business days of closure. Affected customers are told within 72 hours of Cedarpoint confirming an incident that affected their data or service.
 
 **Objective:** Incidents are handled the same way every time, and the company learns from them.
 
 **Design assessment:** Adequate with observation. The plan names one incident commander and no backup (see observation).
 
-**Population and completeness:** The incident ticket list (ER-18) shows 3 incidents from 2026-04-01 to 2026-09-30. The analyst compared it with the alerts the logging platform escalated to incident tickets (ER-47): 3 escalations, matching the same 3 ticket IDs. Population accepted. All 3 were tested because the population is under 25.
+**Population and completeness:** The incident ticket list (ER-18) shows 3 incidents from 2026-04-01 to 2026-09-30. Events reach the security team from three sources: monitoring alerts, reports to the security mailbox, and security-tagged customer support tickets. The analyst compared the ticket list with the combined log of all three sources (ER-47): 3 events, matching the same 3 ticket IDs. INC-2026-011 came from an employee report, INC-2026-014 from a monitoring alert and INC-2026-018 from a customer report. Population accepted. All 3 were tested because the population is under 25.
 
-**Limit of the completeness check:** Both lists show only incidents that were detected and declared. An event nobody noticed would not appear in either. The 71-hour MFA lapse found in WP-04 was not declared as an incident. The plan defines an incident as an event that results in unauthorized access to, or loss, disclosure or unavailability of, company or customer data or systems. No unauthorized access was found in the lapse (WP-04), so it does not meet that definition. The detection gap is covered in D-04 and the alert rule gap in WP-08.
+**Limit of the completeness check:** All the sources show only events that someone detected and reported. An event nobody noticed would not appear in any of them. The 71-hour MFA lapse found in WP-04 was not declared as an incident. Under the incident definition above it does not qualify, because no unauthorized access was found in the lapse (WP-04). The detection gap is covered in D-04 and the alert rule gap in WP-08.
 
 **Procedures performed:** Inspection.
 1. Inspected the plan's review record, the tabletop exercise record and the action tracker.
@@ -185,7 +185,7 @@ This matches the sample result: the same single failure was late.
 | V-09 | Document signing service | Onboarding (contract signed 2026-07-17, start 2026-07-20) | **2026-10-16** | Yes | **No, received 2026-10-19** | **Exception** |
 
 **Exception detail**
-- **V-08:** The review was done on time, 359 days after the prior review. The exception is that the record was not produced by the deadline. Test plan section 8 treats missing evidence as an exception.
+- **V-08:** The review was done on time, 359 days after the prior review. The exception is that the record was not produced by the deadline. Test plan section 8 treats missing evidence as an exception, using the reading in the note at the top of this document.
 - **V-09:** No review existed before onboarding. The review document is dated 2026-10-16, four days after the evidence deadline and after the analyst asked for it, so it was prepared in response to the request and is not evidence that a review happened before the contract started. The analyst did not accept it as period evidence. The vendor does hold a current SOC 2 Type II report, which the late review confirms, so the risk looks low, but the control did not operate.
 
 **Root cause:** For V-09, the contract was signed from a business request without going through the vendor review step, and nothing blocks signature until a review is approved. For V-08, the review file was kept outside the register and the owner could not find it by the deadline.
@@ -196,8 +196,6 @@ This matches the sample result: the same single failure was late.
 
 **Conclusion:** Not effective, operating. This is a population tested in full with more than 5 items, so under section 8 of the test plan, 2 or more exceptions make the control not effective. Only V-09 is a control that did not operate. If V-08 were set aside the result would be Effective with exception, but the plan does not allow the analyst to set it aside. Any change would need an approved plan amendment. The deficiency log rates them separately.
 **Deficiency references:** D-10 (V-09, no review before onboarding), D-11 (V-08, evidence not produced by the deadline)
-
-**Same rule applies in Part 4.** ER-29 (the Q3 deletion run record for CP-16) was also received after its deadline and will be treated the same way.
 
 ---
 
@@ -250,24 +248,8 @@ Both populations accepted.
 
 **Information only, not part of the sample conclusion:** The analyst checked all 38 new hires. 5 (13%) completed after 30 days. In all 5, the HR record was created more than 7 days after the start date.
 
-**Root cause:** The course is assigned when the HR record is created. For these new hires the record was entered two weeks after they started, leaving them under 30 days for a course they would normally finish in about four weeks.
+**Root cause:** The course is assigned when the HR record is created. For both sampled exceptions the record was entered 14 days after the start date, leaving 16 days to finish. The two hires then took 28 and 35 days from assignment to complete the course. The late HR record is the common factor in all 5 late completions in the full population.
 
 **Pattern or one-off:** Pattern. All 5 late completions share one cause, and 2 of 25 (8%) in the sample.
 
-**Observation:** The same HR timing gap appears in CP-03 (termination notices reaching IT late, WP-03). A rule that HR records are entered by the start date or last working day would help both controls.
-
-**Conclusion:** Not effective, operating. The annual training passed, but a sample of 25 new hires with 2 exceptions makes the new-hire part not effective under section 8 of the test plan.
-**Deficiency reference:** D-12
-
----
-
-## Reviewer sign-off
-
-| Workpaper | Reviewed by | Review date | Comments |
-|---|---|---|---|
-| WP-09 | Compliance Lead | 2026-10-30 | Completeness check against escalated alerts agreed |
-| WP-10 | Compliance Lead | 2026-10-30 | Extension to 50 jobs accepted; failed job table reperformed |
-| WP-11 | Head of Security | 2026-10-30 | Reviewed in place of the Compliance Lead, who owns CP-11; V-09 late review not accepted as period evidence |
-| WP-12 | Compliance Lead | 2026-10-30 | Day counts reperformed |
-
-*End of Part 3. Part 4 covers CP-13 to CP-16.*
+*
